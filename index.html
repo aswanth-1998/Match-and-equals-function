@@ -1,0 +1,59 @@
+<html>
+<head>
+   <script>
+function registration()
+{
+var nam=document.getElementById("name").value;
+var user=document.getElementById("username").value;
+var email = document.getElementById("email").value;
+var pass = document.getElementById("password").value;
+var repass = document.getElementById("repassword").value;
+
+if(pass == "") 
+{  
+document.getElementById("errorpassword1").innerHTML = "Password Field cannot be empty";
+} 
+if(repass == "") 
+{  
+document.getElementById("errorpassword2").innerHTML = "Re-Enter Password Field cannot be empty";
+} 
+var reg = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/;
+if (reg.test(email) && pass == repass)
+{
+document.getElementById("success").innerHTML="<h3>Login Successful</h3>";
+}
+else{
+    if(!(reg.test(email)))
+    {
+    document.getElementById("errorMail").innerHTML="Invalid E-mail Id";
+    }
+    if(!(pass == repass))
+    {
+    document.getElementById("errorpassword2").innerHTML="Password and Re-Type Password doesn't match";
+    }
+}
+if(email == "") 
+{  
+document.getElementById("errorMail").innerHTML = "E-mail Id Field cannot be empty";
+}
+}
+</script>
+</head>
+<body>
+    <h1>Registration Page</h1><br>
+    Name <input type="text" id="name"><br>
+    Username  <input type="text" id="username"><br>
+    E-mail Id <input type="email" id="email"><br>
+    Password <input type="password" id="password"><br>
+    Re-Enter Password <input type="password" id="repassword"><br>      
+    <button id="register" onclick="registration()">Register</button>    
+   <div id="errorMail">       
+   </div>
+   <div id="errorpassword1">       
+   </div>
+   <div id="errorpassword2">    
+   </div>
+   <div id="success">
+   </div>
+</body>
+</html>
